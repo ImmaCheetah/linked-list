@@ -18,6 +18,16 @@ class NodeMakerClass {
 
 function LinkedList() {
 
+    let node = Node();
+
+    const append = (value) => {
+        let node = Node
+        node.nextNode = node;
+
+        return node;
+    }
+
+    return {head, node, append}
 }
 
 function Node(value = null, nextNode = null) {
@@ -27,6 +37,9 @@ function Node(value = null, nextNode = null) {
 
 let node1 = Node("wow");
 console.log(node1);
+
+let list1 = LinkedList();
+console.log(list1.append('bam'));
 
 let sampleList = {
     value: 1,
