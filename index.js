@@ -16,30 +16,42 @@ class NodeMakerClass {
     }
 }
 
-function LinkedList() {
 
-    let node = Node();
+// Factory function for a list
+
+function LinkedList() {
+    let list = Node("head");
 
     const append = (value) => {
-        let node = Node
-        node.nextNode = node;
+        // Set the head of node to a new variable
+        // Set current node to the next node if it is not null
+        // If it is, set that node to the new value
+        let currentNode = list;
+        while (currentNode.nextNode != null) {
+            currentNode = currentNode.nextNode;
+        }
+        currentNode.nextNode = Node(value);
 
-        return node;
     }
 
-    return {head, node, append}
+    // Set the head to the new value and next node to the head
+    const prepend = (value) => {
+        list = Node(value, nextNode = list);
+        return list;
+    }
+
+    return { list, append, prepend }
 }
 
+// Factory function for a node that returns a value and nextNode which are null by default
 function Node(value = null, nextNode = null) {
- 
     return { value, nextNode }
 }
 
-let node1 = Node("wow");
-console.log(node1);
-
 let list1 = LinkedList();
-console.log(list1.append('bam'));
+console.log(list1.append('Something'));
+// console.log(list1.prepend('yag'));
+console.log(list1.append('Something else'));
 
 let sampleList = {
     value: 1,
@@ -55,5 +67,6 @@ let sampleList = {
     }
   };
 
+// console.log(findValue2(sampleList, null))
 
 
