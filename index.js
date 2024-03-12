@@ -41,12 +41,12 @@ function LinkedList() {
 
     const size = () => {
         let count = 0;
-        for (const key in list) {
-            console.log(key);
-            if (list[key] = "nextNode") {
-                count++;
-            }
+        let currentNode = list;
+        while (currentNode.nextNode != null) {
+            count++;
+            currentNode = currentNode.nextNode;
         }
+
         return count;
     }
 
@@ -62,6 +62,14 @@ function LinkedList() {
         }
 
         return currentNode;
+    }
+
+    const at = (index) => {
+
+    }
+
+    const pop = () => {
+
     }
 
     const contains = (value) => {
@@ -92,9 +100,8 @@ let list1 = LinkedList();
 list1.append('Something');
 list1.prepend('New head');
 list1.append('Something else');
-console.log(list1);
-console.log(list1.tail());
-console.log(list1.contains('Something else'));
+console.log(list1.size());
+
 
 let sampleList = {
     value: 1,
