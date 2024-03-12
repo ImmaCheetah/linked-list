@@ -1,25 +1,6 @@
-class LinkedListClass {
-    constructor(list) {
-        this._list = list;
-    }
-    get list() {
-        return this._list;
-    }
-    set list(value) {
-        this._list = value;
-    }
-}
-
-class NodeMakerClass {
-    constructor(node) {
-        this.node = node
-    }
-}
-
-
 // Factory function for a list
-
 function LinkedList() {
+    // let list = {head: null};
     let list = Node("head");
 
     const append = (value) => {
@@ -48,11 +29,11 @@ function LinkedList() {
             currentNode = currentNode.nextNode;
         }
 
-        return count;
+        return `The number of nodes are ${count}`;
     }
 
     const head = () => {
-
+        // return list.nextNode;
     }
 
     // Use same loop from append to go until last node and return
@@ -78,7 +59,10 @@ function LinkedList() {
 
     const pop = () => {
         let currentNode = list;
-        while (currentNode.nextNode != null) {
+        // Check if the node 2 nodes ahead is null
+        // If not, move to the next
+        // If it is, make the next node null
+        while (currentNode.nextNode.nextNode != null) {
 
             currentNode = currentNode.nextNode;
         }
@@ -107,7 +91,7 @@ function LinkedList() {
         let currentNode = list;
         while (currentNode != null) {
             if (currentNode.value == value) {
-                return index;
+                return `The index of ${value} is ${index}`;
             }
             index++;
             currentNode = currentNode.nextNode;
@@ -127,7 +111,9 @@ function LinkedList() {
         return listString + null;
     }
 
-    return { list, append, prepend, tail, size, contains, at, pop, find, toString }
+
+
+    return { list, append, prepend, head, tail, size, contains, at, pop, find, toString }
 }
 
 // Factory function for a node that returns a value and nextNode which are null by default
@@ -137,23 +123,12 @@ function Node(value = null, nextNode = null) {
 
 let list1 = LinkedList();
 list1.append('Something');
+list1.append('Something 2');
+list1.append('Something 3');
 console.log(list1.prepend('New head'));
-console.log(list1.find("Something"));
-console.log(list1.toString());
+// console.log(list1.find("Something"));
+// console.log(list1.pop())
+// console.log(list1.toString());
+console.log(list1);
 
-
-
-let sampleList = {
-    value: 1,
-    next: {
-      value: 2,
-      next: {
-        value: 3,
-        next: {
-          value: 4,
-          next: null
-        }
-      }
-    }
-  };
 
