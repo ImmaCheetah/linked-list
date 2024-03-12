@@ -37,10 +37,50 @@ function LinkedList() {
     // Set the head to the new value and next node to the head
     const prepend = (value) => {
         list = Node(value, nextNode = list);
-        return list;
     }
 
-    return { list, append, prepend }
+    const size = () => {
+        let count = 0;
+        for (const key in list) {
+            console.log(key);
+            if (list[key] = "nextNode") {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    const head = () => {
+
+    }
+
+    // Use same loop from append to go until last node and return
+    const tail = () => {
+        let currentNode = list;
+        while (currentNode.nextNode != null) {
+            currentNode = currentNode.nextNode;
+        }
+
+        return currentNode;
+    }
+
+    const contains = (value) => {
+        // Use same format from append to iterate over objects
+        // Check currentNode for null instead of nextNode to not skip over last object
+        let currentNode = list;
+        while (currentNode != null) {
+
+            if (currentNode.value == value) {
+                return true;
+            }
+            currentNode = currentNode.nextNode;
+        }
+
+        return false;
+
+    }
+
+    return { list, append, prepend, tail, size, contains }
 }
 
 // Factory function for a node that returns a value and nextNode which are null by default
@@ -49,9 +89,12 @@ function Node(value = null, nextNode = null) {
 }
 
 let list1 = LinkedList();
-console.log(list1.append('Something'));
-// console.log(list1.prepend('yag'));
-console.log(list1.append('Something else'));
+list1.append('Something');
+list1.prepend('New head');
+list1.append('Something else');
+console.log(list1);
+console.log(list1.tail());
+console.log(list1.contains('Something else'));
 
 let sampleList = {
     value: 1,
@@ -66,7 +109,4 @@ let sampleList = {
       }
     }
   };
-
-// console.log(findValue2(sampleList, null))
-
 
