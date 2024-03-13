@@ -1,6 +1,6 @@
 // Factory function for a list
-function LinkedList() {
-    // let list = {head: null};
+function LinkedList(head = "something", nextNode = Node()) {
+    // let list = {head: Node("something")};
     let list = Node("head");
 
     const append = (value) => {
@@ -14,7 +14,6 @@ function LinkedList() {
         currentNode.nextNode = Node(value);
 
     }
-
     // Set the head to the new value and next node to the head
     const prepend = (value) => {
         list = Node(value, nextNode = list);
@@ -32,8 +31,8 @@ function LinkedList() {
         return `The number of nodes are ${count}`;
     }
 
-    const head = () => {
-        // return list.nextNode;
+    const head2 = () => {
+        return list.value;
     }
 
     // Use same loop from append to go until last node and return
@@ -113,7 +112,7 @@ function LinkedList() {
 
 
 
-    return { list, append, prepend, head, tail, size, contains, at, pop, find, toString }
+    return { append, prepend, head, tail, size, contains, at, pop, find, toString, nextNode }
 }
 
 // Factory function for a node that returns a value and nextNode which are null by default
@@ -122,13 +121,15 @@ function Node(value = null, nextNode = null) {
 }
 
 let list1 = LinkedList();
-list1.append('Something');
-list1.append('Something 2');
-list1.append('Something 3');
-console.log(list1.prepend('New head'));
-// console.log(list1.find("Something"));
-// console.log(list1.pop())
+console.log(list1.append());
+// console.log(list1.append('something'));
+// list1.append('Something');
+// list1.append('Something 2');
+// list1.append('Something 3');
+// console.log(list1.prepend('New head'));
+// // console.log(list1.find("Something"));
+// // console.log(list1.pop())
 // console.log(list1.toString());
-console.log(list1);
+// console.log(list1.head());
 
 
