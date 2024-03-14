@@ -123,10 +123,11 @@ function Node(value = null, nextNode = null) {
     return { value, nextNode }
 }
 
-let myList = LinkedList("Head value");
+let myList = LinkedList();
+console.log(myList);
 myList.append("1st Item");
-myList.append("2nd Item");
-myList.append("3rd Item");
-myList.prepend("New 1st Item");
-console.log(myList.toString());
+// myList.append("2nd Item");
+// myList.append("3rd Item");
+// myList.prepend("New 1st Item");
+// console.log(myList.toString());
 
